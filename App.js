@@ -1,20 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect } from "react";
+import NetInfo from "@react-native-community/netinfo";
+import AppNavigations from "./navigations/AppNavigations";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  const [isOffline, setIsOfflineStatus] = useState(false);
+  useEffect(() => {
+    const getNetInfo = NetInfo.addEventListener((state) => {
+      setIsOfflineStatus(!state.isConnected || !state.isInternetReachable);
+    });
+    return () => getNetInfo();
+  }, [isOffline]);
+
+  console.log(isOffline)
+
+  return <AppNavigations />;
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

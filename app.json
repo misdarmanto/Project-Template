@@ -23,7 +23,12 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-8095237298596091~3314525522"
+      },
+      "versionCode" : 1,
+      "package": "com.misdar.namePacgake"
     },
     "web": {
       "favicon": "./assets/favicon.png"
